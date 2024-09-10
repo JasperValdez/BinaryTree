@@ -1,11 +1,18 @@
+import java.util.Arrays;
 
 public class BinaryTree {
     public static void main(String[] args) {
-    
-        int [] arr = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21};
-        System.out.println(binarySearch(arr, 11) +"" + " is the Index Number : ");
+        
+        int [] arr = {21, 23, 51, 27, 9, 11, 18, 25, 58, 69, 90 };
+       
+        ascOrder(arr);
 
-        System.out.println("PUTANGINA MO JAI");
+        // for(int i = 0; i< arr.length; i++){
+        //     System.out.println(arr[i] + " ");
+        
+        System.out.println(binarySearch(arr, 27) +"" + " is the Index Number : ");
+    
+        System.out.println(Arrays.binarySearch(arr, 27)+ "" + " is the Built-in Index :");
 
     }
     private static int binarySearch(int [] numbers, int numberToFind){
@@ -27,4 +34,28 @@ public class BinaryTree {
       }
       return -1;
     }
+    private static void ascOrder (int [] arr){
+        
+        // Outer loop
+        for (int i = 0; i < arr.length; i++) {
+
+            // Inner nested loop pointing 1 index ahead
+            for (int j = i + 1; j < arr.length; j++) {
+
+                // Checking elements
+                int temp = 0;
+                if (arr[j] < arr[i]) {
+
+                    // Swapping
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+
+            // Printing sorted array elements
+            System.out.println(arr[i] + " ");
+
+    }
+}
 }
